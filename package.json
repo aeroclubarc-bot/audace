@@ -1,11 +1,9 @@
 {
   "name": "audace-chavenay",
   "version": "1.0.0",
-  "description": "Site web AUDACE — Association des Usagers De l'Aérodrome de Chavenay et de son Environnement",
-  "main": "server.js",
+  "description": "Site AUDACE — Aérodrome de Chavenay LFPX",
   "scripts": {
-    "start": "node server.js",
-    "dev": "node server.js"
+    "start": "node server.js"
   },
   "dependencies": {
     "express": "^4.18.2"

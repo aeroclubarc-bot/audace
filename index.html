@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AUDACE Chavenay — Aérodrome ouvert sur son environnement</title>
+<meta name="description" content="Association des Usagers De l'Aérodrome de Chavenay et de son Environnement. Charte de relations et de respect mutuel entre usagers et riverains, LFPX.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --sky:#5aa8d8;--sky2:#7ec3e8;--sky3:#b8dff5;
+  --gold:#d4900a;--goldl:#f5b732;--goldp:#fef3d0;
+  --navy:#1a3560;--navyl:#2a4f8a;
+  --tx:#1c2535;--mu:#56657a;--bo:#dde5ee;--bg:#f8fafc;--wh:#ffffff;
+  --gr:#2e6b3e;--grl:#e8f3ec;
+  --fh:'Outfit',sans-serif;--fb:'Outfit',sans-serif;--fs:'Lora',serif;
+  --r:10px;--rl:18px;--sh:0 2px 16px rgba(26,53,96,.10);--shl:0 8px 40px rgba(26,53,96,.15)
+}
+body{font-family:var(--fb);color:var(--tx);background:var(--wh);line-height:1.65;overflow-x:hidden}
+.container{max-width:1100px;margin:0 auto;padding:0 2rem}
+.nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,.95);backdrop-filter:blur(14px);border-bottom:1px solid transparent;transition:border-color .3s,box-shadow .3s}
+.nav.sc{border-color:var(--bo);box-shadow:var(--sh)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:62px}
+.nav-logo{display:flex;align-items:center;gap:.9rem;text-decoration:none}
+.nav-logo-mk{display:flex;align-items:center;justify-content:center;width:88px;height:32px;background:linear-gradient(135deg,var(--sky),var(--sky3));border-radius:6px;position:relative;overflow:hidden}
+.nav-logo-mk span{font-family:var(--fh);font-weight:800;font-size:.88rem;color:var(--gold);letter-spacing:.06em;text-shadow:0 1px 3px rgba(0,0,0,.2);position:relative;z-index:1}
+.nav-logo-mk::after{content:'✈';position:absolute;right:-5px;font-size:1.6rem;color:rgba(255,255,255,.2)}
+.nav-logo-tx{line-height:1.1}
+.nav-logo-name{font-weight:700;font-size:1rem;color:var(--navy);letter-spacing:.04em}
+.nav-logo-sub{font-size:.6rem;color:var(--mu);letter-spacing:.18em;text-transform:uppercase}
+.nav-links{display:flex;align-items:center;gap:.1rem;list-style:none}
+.nav-links a{display:block;padding:.4rem .78rem;font-size:.82rem;font-weight:500;color:var(--mu);text-decoration:none;border-radius:7px;transition:color .2s,background .2s}
+.nav-links a:hover{color:var(--navy);background:#eef3fa}
+.nav-links a.ac{color:var(--navy)}
+.nav-cta{background:var(--navy)!important;color:#fff!important;border-radius:8px!important;padding:.4rem 1rem!important;transition:background .2s!important}
+.nav-cta:hover{background:#0f2040!important}
+.nav-bur{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+.nav-bur span{display:block;width:22px;height:2px;background:var(--tx);border-radius:2px}
+.hero{padding-top:62px;min-height:92vh;display:flex;align-items:center;position:relative;overflow:hidden;background:linear-gradient(160deg,#0e2a50 0%,var(--navyl) 40%,var(--sky) 100%)}
+.hero-stars{position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,.055) 1px,transparent 1px);background-size:40px 40px;animation:drift 80s linear infinite}
+@keyframes drift{to{background-position:40px 40px}}
+.hero-glow{position:absolute;top:20%;right:10%;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(212,144,10,.12) 0%,transparent 65%);pointer-events:none}
+.hero-horizon{position:absolute;bottom:0;left:0;right:0;height:180px;background:linear-gradient(to top,rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);pointer-events:none}
+.hero-wm{position:absolute;right:-2rem;top:50%;transform:translateY(-50%);font-family:var(--fh);font-weight:800;font-size:18rem;line-height:1;color:rgba(255,255,255,.025);letter-spacing:-.04em;user-select:none;pointer-events:none;white-space:nowrap}
+.hero-c{position:relative;z-index:2;max-width:680px;padding-bottom:5rem}
+.hero-pill{display:inline-flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);color:rgba(255,255,255,.9);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;padding:.38rem .9rem;border-radius:100px;margin-bottom:1.75rem}
+.hero-dot{width:6px;height:6px;border-radius:50%;background:var(--goldl)}
+.hero h1{font-family:var(--fh);font-weight:800;font-size:clamp(2.5rem,5.5vw,4rem);color:#fff;line-height:1.08;letter-spacing:-.03em;margin-bottom:1.5rem}
+.hero h1 em{font-style:normal;color:var(--goldl)}
+.hero-desc{font-size:1.05rem;color:rgba(255,255,255,.78);line-height:1.8;margin-bottom:2.5rem;max-width:520px}
+.hero-acts{display:flex;gap:.9rem;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:.45rem;padding:.72rem 1.4rem;border-radius:var(--r);font-family:var(--fb);font-size:.88rem;font-weight:600;text-decoration:none;cursor:pointer;border:none;transition:transform .15s,box-shadow .15s,background .2s}
+.btn:hover{transform:translateY(-1px)}
+.btn-gold{background:var(--gold);color:#fff;box-shadow:0 2px 14px rgba(212,144,10,.35)}
+.btn-gold:hover{background:#b87a08;box-shadow:0 4px 22px rgba(212,144,10,.45)}
+.btn-ghost{background:rgba(255,255,255,.12);color:#fff;border:1.5px solid rgba(255,255,255,.35)}
+.btn-ghost:hover{background:rgba(255,255,255,.2);border-color:rgba(255,255,255,.6)}
+.btn-navy{background:var(--navy);color:#fff;box-shadow:var(--sh)}
+.btn-navy:hover{background:#0f2040;box-shadow:var(--shl)}
+.hero-stats{position:absolute;bottom:0;left:0;right:0;z-index:3}
+.hero-stats-in{background:#fff;border-radius:var(--rl) var(--rl) 0 0;display:grid;grid-template-columns:repeat(4,1fr);box-shadow:0 -4px 30px rgba(26,53,96,.10)}
+.hstat{display:flex;flex-direction:column;align-items:center;padding:1.4rem 1rem;gap:.2rem;border-right:1px solid var(--bo);transition:background .2s}
+.hstat:last-child{border-right:none}
+.hstat:hover{background:#f0f5fc}
+.sn{font-family:var(--fh);font-weight:800;font-size:1.55rem;color:var(--navy);line-height:1}
+.sl{font-size:.72rem;color:var(--mu);text-align:center}
+.sh{text-align:center;margin-bottom:3.5rem}
+.sh-eye{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--navyl);background:#e8f0fb;padding:.28rem .85rem;border-radius:100px;margin-bottom:.9rem}
+.sh-title{font-family:var(--fh);font-weight:800;font-size:clamp(1.75rem,3.5vw,2.4rem);color:var(--tx);line-height:1.15;letter-spacing:-.025em;margin-bottom:.9rem}
+.sh-desc{font-size:1rem;color:var(--mu);max-width:540px;margin:0 auto;line-height:1.75}
+.missions{padding:5.5rem 0;background:var(--wh)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(248px,1fr));gap:1.25rem}
+.card{background:var(--wh);border:1px solid var(--bo);border-radius:var(--rl);padding:1.75rem;position:relative;overflow:hidden;transition:box-shadow .25s,transform .25s,border-color .25s}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--navy),var(--sky));transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.card:hover::before{transform:scaleX(1)}
+.card:hover{box-shadow:var(--shl);transform:translateY(-3px);border-color:#c8d9ee}
+.card-ico{width:50px;height:50px;border-radius:var(--r);display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:1.1rem;background:#eef3fb}
+.card-ico.g{background:var(--grl)}.card-ico.a{background:#fff0d8}.card-ico.s{background:#f0eeff}
+.card-title{font-family:var(--fh);font-weight:700;font-size:1rem;color:var(--tx);margin-bottom:.5rem;line-height:1.3}
+.card-text{font-size:.875rem;color:var(--mu);line-height:1.72}
+.charte{padding:5.5rem 0;background:var(--navy);position:relative;overflow:hidden}
+.charte::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,rgba(255,255,255,.015) 0px,rgba(255,255,255,.015) 1px,transparent 1px,transparent 40px)}
+.charte-blob{position:absolute;right:-80px;top:-80px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(212,144,10,.08) 0%,transparent 65%);pointer-events:none}
+.charte-in{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1.1fr;gap:5rem;align-items:start}
+.charte-l .sh{text-align:left}
+.charte-l .sh-eye{background:rgba(212,144,10,.18);color:var(--goldl)}
+.charte-l .sh-title{color:#fff}
+.charte-intro{color:rgba(255,255,255,.72);font-size:.95rem;line-height:1.8;margin-bottom:1.75rem}
+.sig-lbl{font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:.85rem}
+.sig-grid{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:2rem}
+.sig-tag{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);color:rgba(255,255,255,.7);font-size:.75rem;padding:.28rem .7rem;border-radius:100px;transition:background .2s}
+.sig-tag:hover{background:rgba(255,255,255,.15);color:#fff}
+.arts{display:flex;flex-direction:column;gap:.85rem}
+.art{display:flex;gap:1rem;align-items:flex-start;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:var(--r);padding:1.1rem 1.25rem;transition:background .2s}
+.art:hover{background:rgba(255,255,255,.1)}
+.art-n{flex-shrink:0;width:30px;height:30px;border-radius:50%;background:rgba(212,144,10,.2);color:var(--goldl);font-family:var(--fh);font-weight:700;font-size:.8rem;display:flex;align-items:center;justify-content:center}
+.art-title{font-weight:600;color:#fff;font-size:.9rem;margin-bottom:.2rem}
+.art-text{font-size:.82rem;color:rgba(255,255,255,.6);line-height:1.6}
+.silence{padding:4rem 0;background:var(--goldp)}
+.silence-in{display:flex;gap:3rem;align-items:center;background:#fff;border-radius:var(--rl);padding:2.5rem 3rem;border:1px solid #f0d890;box-shadow:0 4px 24px rgba(212,144,10,.08)}
+.silence-ico{font-size:3rem;flex-shrink:0}
+.silence-title{font-family:var(--fh);font-weight:700;font-size:1.2rem;color:var(--tx);margin-bottom:.6rem}
+.silence-text{font-size:.9rem;color:var(--mu);line-height:1.75}
+.slots{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1rem}
+.slot{background:#fff8e1;border:1px solid #f0d890;border-radius:6px;padding:.35rem .8rem;font-size:.8rem;font-weight:600;color:var(--gold)}
+.ouvoler{padding:5.5rem 0;background:var(--bg)}
+.ouvoler-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:4rem;align-items:start}
+.clubs{display:flex;flex-direction:column;gap:.75rem}
+.club{display:flex;align-items:center;gap:1rem;background:#fff;border:1px solid var(--bo);border-radius:var(--r);padding:.9rem 1.15rem;text-decoration:none;color:inherit;transition:box-shadow .2s,transform .2s,border-color .2s}
+.club:hover{box-shadow:var(--sh);transform:translateX(4px);border-color:#b8d0ee}
+.club-ico{width:38px;height:38px;border-radius:8px;background:linear-gradient(135deg,var(--sky3),var(--sky2));display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.club-name{font-weight:600;font-size:.88rem;color:var(--tx);margin-bottom:.08rem}
+.club-url{font-size:.73rem;color:var(--mu)}
+.club-arr{margin-left:auto;color:var(--bo);font-size:1.1rem;transition:color .2s}
+.club:hover .club-arr{color:var(--navy)}
+.ovr .sh{text-align:left}.ovr .sh-eye{display:inline-block}
+.infos{display:flex;flex-direction:column;gap:.7rem;margin-top:1.75rem}
+.info-row{display:flex;gap:.85rem;align-items:flex-start;padding:.85rem 1rem;background:#fff;border-radius:var(--r);border:1px solid var(--bo)}
+.info-ico{flex-shrink:0;font-size:1.1rem;margin-top:.05rem}
+.info-b strong{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--navyl);margin-bottom:.1rem}
+.info-b span{font-size:.875rem;color:var(--tx);line-height:1.55}
+.musee{margin-top:1.5rem;padding:1.1rem 1.25rem;background:linear-gradient(135deg,#e8f0fb,#f0f5ff);border-radius:var(--r);border-left:3px solid var(--navyl);font-size:.875rem;color:var(--tx);line-height:1.65}
+.musee strong{color:var(--navy);font-weight:600}
+.jeunes{padding:5.5rem 0;background:#fff}
+.jeunes-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.1rem;margin-top:3.5rem}
+.jeune{background:var(--bg);border:1px solid var(--bo);border-radius:var(--rl);padding:1.75rem 1.5rem;text-align:center;transition:box-shadow .22s,transform .22s}
+.jeune:hover{box-shadow:var(--sh);transform:translateY(-2px)}
+.jeune-ico{font-size:2.2rem;margin-bottom:.7rem;display:block}
+.jeune-name{font-family:var(--fh);font-weight:700;font-size:.95rem;color:var(--tx);margin-bottom:.4rem}
+.jeune-desc{font-size:.8rem;color:var(--mu);line-height:1.65}
+.communes{padding:5rem 0;background:var(--grl)}
+.communes-body{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;margin-top:3.5rem}
+.communes-text p{font-size:.95rem;color:var(--mu);line-height:1.8;margin-bottom:1.25rem}
+.leg-row{display:flex;gap:1.5rem;margin-top:1.25rem;font-size:.75rem;color:var(--mu)}
+.leg{display:flex;align-items:center;gap:.4rem}
+.ld{width:8px;height:8px;border-radius:50%}
+.ld.s{background:var(--gr)}.ld.o{background:#b8d4c0}
+.ctags{display:flex;flex-wrap:wrap;gap:.6rem}
+.ctag{display:inline-flex;align-items:center;gap:.35rem;background:#fff;border:1px solid #b8d4c0;color:var(--gr);font-size:.82rem;font-weight:600;padding:.38rem .9rem;border-radius:100px;transition:background .2s,color .2s,box-shadow .2s}
+.ctag:hover{background:var(--gr);color:#fff;box-shadow:0 2px 10px rgba(46,107,62,.25)}
+.ctag.sg{border-color:var(--gr)}
+.ctag::before{content:'📍';font-size:.7rem}
+.contact{padding:5.5rem 0;background:#fff}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.contact-l .sh{text-align:left}
+.cds{display:flex;flex-direction:column;gap:.85rem;margin-bottom:2rem}
+.cd{display:flex;gap:.9rem;align-items:flex-start;padding:.85rem 1rem;background:var(--bg);border-radius:var(--r);border:1px solid var(--bo)}
+.cd-ico{width:38px;height:38px;background:#e8f0fb;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.1rem}
+.cd-tx strong{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--mu);margin-bottom:.1rem}
+.cd-tx span{font-size:.88rem;color:var(--tx);line-height:1.5}
+.riv-note{padding:1.1rem 1.25rem;background:#f0f5ff;border-radius:var(--r);border-left:3px solid var(--navy);font-size:.875rem;color:var(--tx);line-height:1.65}
+.riv-note strong{color:var(--navy);font-weight:600}
+.cform{background:var(--bg);border-radius:var(--rl);padding:2.25rem;border:1px solid var(--bo)}
+.cf-title{font-family:var(--fh);font-weight:700;font-size:1.15rem;color:var(--tx);margin-bottom:1.5rem}
+.fg{margin-bottom:1.1rem}
+.fl{display:block;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--tx);margin-bottom:.35rem}
+.fi,.ft,.fsel{width:100%;background:#fff;border:1.5px solid var(--bo);border-radius:var(--r);padding:.65rem .9rem;font-family:var(--fb);font-size:.875rem;color:var(--tx);transition:border-color .2s,box-shadow .2s;outline:none}
+.fi:focus,.ft:focus,.fsel:focus{border-color:var(--navy);box-shadow:0 0 0 3px rgba(26,53,96,.1)}
+.ft{resize:vertical;min-height:115px}
+footer{background:#0e1a2d;color:rgba(255,255,255,.65);padding:3.5rem 0 2rem}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:3rem;padding-bottom:2.5rem;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:1.5rem}
+.footer-brand{display:flex;flex-direction:column;gap:1rem}
+.footer-logo{display:flex;align-items:center;gap:.8rem}
+.footer-lm{width:72px;height:26px;border-radius:5px;background:linear-gradient(135deg,var(--sky),var(--sky3));display:flex;align-items:center;justify-content:center;font-family:var(--fh);font-weight:800;font-size:.72rem;color:var(--gold);letter-spacing:.05em}
+.footer-brand-name{font-family:var(--fh);font-weight:700;font-size:1rem;color:#fff;letter-spacing:.04em}
+.footer-desc{font-size:.83rem;line-height:1.75;max-width:290px}
+.footer-badge{display:inline-flex;align-items:center;gap:.4rem;background:rgba(26,80,138,.4);border:1px solid rgba(26,80,138,.7);color:var(--sky3);font-size:.7rem;font-weight:700;letter-spacing:.1em;padding:.28rem .7rem;border-radius:100px;width:fit-content}
+.fc-title{font-family:var(--fh);font-weight:700;font-size:.78rem;color:#fff;text-transform:uppercase;letter-spacing:.14em;margin-bottom:1rem}
+.flinks{list-style:none;display:flex;flex-direction:column;gap:.45rem}
+.flinks a{color:rgba(255,255,255,.55);text-decoration:none;font-size:.85rem;transition:color .2s}
+.flinks a:hover{color:#fff}
+.footer-bot{display:flex;justify-content:space-between;align-items:center;font-size:.78rem;color:rgba(255,255,255,.35)}
+.footer-bot a{color:rgba(255,255,255,.4);text-decoration:none}
+.footer-bot a:hover{color:rgba(255,255,255,.7)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+.ai{opacity:0}.ai.vis{animation:fadeUp .55s ease forwards}
+@media(max-width:940px){
+  .charte-in,.ouvoler-grid,.communes-body,.contact-grid,.footer-grid{grid-template-columns:1fr;gap:2.5rem}
+  .hero-stats-in{grid-template-columns:repeat(2,1fr)}
+  .hstat:nth-child(2){border-right:none}
+  .hstat:nth-child(3){border-right:1px solid var(--bo);border-top:1px solid var(--bo)}
+  .hstat:nth-child(4){border-top:1px solid var(--bo)}
+  .silence-in{flex-direction:column;gap:1.25rem;padding:1.75rem}
+  .nav .nav-links{display:none}
+  .nav .nav-links.open{display:flex;flex-direction:column;position:absolute;top:62px;left:0;right:0;background:#fff;border-bottom:1px solid var(--bo);padding:.75rem;gap:.15rem;box-shadow:var(--sh)}
+  .nav-bur{display:flex}
+}
+@media(max-width:600px){
+  .container{padding:0 1.25rem}
+  .hero h1{font-size:2.2rem}
+  .hero-acts{flex-direction:column}
+  .jeunes-grid{grid-template-columns:repeat(2,1fr)}
+  .footer-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="container">
+    <div class="nav-in">
+      <a href="#" class="nav-logo" aria-label="AUDACE Chavenay">
+        <div class="nav-logo-mk"><span>AUDACE</span></div>
+        <div class="nav-logo-tx">
+          <div class="nav-logo-name">AUDACE</div>
+          <div class="nav-logo-sub">Chavenay · LFPX</div>
+        </div>
+      </a>
+      <ul class="nav-links" id="navlinks">
+        <li><a href="#missions">Association</a></li>
+        <li><a href="#charte">Charte</a></li>
+        <li><a href="#ou-voler">Où voler ?</a></li>
+        <li><a href="#jeunes">Jeunes & Métiers</a></li>
+        <li><a href="#communes">Communes</a></li>
+        <li><a href="#contact" class="nav-cta">Contact</a></li>
+      </ul>
+      <button class="nav-bur" id="burger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-stars" aria-hidden="true"></div>
+  <div class="hero-glow" aria-hidden="true"></div>
+  <div class="hero-wm" aria-hidden="true">AUDACE</div>
+  <div class="hero-horizon" aria-hidden="true"></div>
+  <div class="container">
+    <div class="hero-c">
+      <div class="hero-pill"><span class="hero-dot"></span>Aérodrome de Chavenay-Villepreux · LFPX · Yvelines</div>
+      <h1>Un aérodrome <em>ouvert</em><br>sur son environnement</h1>
+      <p class="hero-desc">L'AUDACE — Association des Usagers De l'Aérodrome de Chavenay et de son Environnement — œuvre pour un dialogue permanent entre pilotes, aéroclubs et riverains, dans le respect mutuel de chacun.</p>
+      <div class="hero-acts">
+        <a href="#charte" class="btn btn-gold">Lire la Charte →</a>
+        <a href="#ou-voler" class="btn btn-ghost">Découvrir les clubs</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="container">
+      <div class="hero-stats-in">
+        <div class="hstat"><span class="sn">1936</span><span class="sl">Fondation de l'aérodrome</span></div>
+        <div class="hstat"><span class="sn">8</span><span class="sl">Structures de vol</span></div>
+        <div class="hstat"><span class="sn">30 km</span><span class="sl">De Paris</span></div>
+        <div class="hstat"><span class="sn">Éd. 2022</span><span class="sl">Charte en vigueur</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="missions" class="missions">
+  <div class="container">
+    <div class="sh ai">
+      <span class="sh-eye">Notre association</span>
+      <h2 class="sh-title">Quatre piliers d'engagement</h2>
+      <p class="sh-desc">L'AUDACE fédère les usagers de l'aérodrome pour une coexistence harmonieuse avec les communes et les riverains des Yvelines.</p>
+    </div>
+    <div class="cards">
+      <div class="card ai"><div class="card-ico">🏘️</div><h3 class="card-title">Intégration avec les villes</h3><p class="card-text">Les aéroclubs sont des associations actives qui fédèrent plusieurs centaines d'adhérents contribuant avec ADP aux finances des collectivités locales.</p></div>
+      <div class="card ai" style="animation-delay:.07s"><div class="card-ico g">🎓</div><h3 class="card-title">Formation aux métiers aéronautiques</h3><p class="card-text">Depuis 1936, formation de jeunes ou adultes en reconversion. L'aérodrome de Chavenay accueille des apprentis pilotes et mécaniciens aéronautiques.</p></div>
+      <div class="card ai" style="animation-delay:.14s"><div class="card-ico a">🌿</div><h3 class="card-title">Ouvert sur son environnement</h3><p class="card-text">Espace vert non constructible, l'aérodrome fait profiter les habitants et associations des structures des aéroclubs pour tout évènement culturel.</p></div>
+      <div class="card ai" style="animation-delay:.21s"><div class="card-ico s">✈️</div><h3 class="card-title">Maintien de compétences</h3><p class="card-text">Pilotes de ligne, professionnels ou privés viennent se perfectionner au pilotage, aux manœuvres de sécurité et à la découverte du domaine de vol.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="charte" class="charte">
+  <div class="charte-blob" aria-hidden="true"></div>
+  <div class="container">
+    <div class="charte-in">
+      <div class="charte-l ai">
+        <div class="sh"><span class="sh-eye">Édition 2022</span><h2 class="sh-title">La Charte de Chavenay</h2></div>
+        <p class="charte-intro">Charte des Relations et de Respect Mutuel entre les Usagers et les Riverains de l'Aérodrome de Chavenay-Villepreux (LFPX), établie entre l'<strong style="color:#fff">AUDACE</strong> et l'<strong style="color:#fff">ADNAC</strong>, avec le concours de la Municipalité de Chavenay, de la CCE, d'ADP et de la DGAC.</p>
+        <div class="sig-lbl">Organismes signataires</div>
+        <div class="sig-grid">
+          <span class="sig-tag">Mairie de Chavenay</span><span class="sig-tag">ADP Gestionnaire</span><span class="sig-tag">DSAC Nord</span><span class="sig-tag">SNA Région parisienne</span><span class="sig-tag">FFA – Île-de-France</span><span class="sig-tag">CNFAS</span><span class="sig-tag">Sous-préfecture Saint-Germain</span><span class="sig-tag">Conseil Dép. Yvelines</span>
+        </div>
+        <a href="#" class="btn btn-gold">Télécharger la charte PDF →</a>
+      </div>
+      <div class="arts ai" style="animation-delay:.12s">
+        <div class="art"><div class="art-n">1</div><div><div class="art-title">Dialogue permanent</div><p class="art-text">Adopter une charte de respect mutuel et maintenir un dialogue permanent et constructif entre usagers et riverains.</p></div></div>
+        <div class="art"><div class="art-n">2</div><div><div class="art-title">Concertation continue</div><p class="art-text">Se concerter dès que les résolutions ne semblent pas respectées ou que la situation évolue. Entretenir des relations suivies sur les projets d'intérêt commun.</p></div></div>
+        <div class="art"><div class="art-n">3</div><div><div class="art-title">Conciliation des intérêts</div><p class="art-text">Trouver les aménagements propres à satisfaire le droit au calme des populations riveraines, tout en préservant le droit à l'activité aéronautique.</p></div></div>
+        <div class="art"><div class="art-n">4</div><div><div class="art-title">Plage de silence en tour de piste</div><p class="art-text">Créneaux de tranquillité les week-ends et jours fériés (1er avril – 30 septembre) : avant 9h, pause méridienne, après 19h.</p></div></div>
+        <div class="art"><div class="art-n">5</div><div><div class="art-title">Réduction du bruit à la source</div><p class="art-text">Favoriser dispositifs homologués (silencieux, hélices multi-pales). Chavenay, premier aérodrome à accueillir le Vélis-Electro en formation ab initio.</p></div></div>
+        <div class="art"><div class="art-n">8</div><div><div class="art-title">Comité de suivi de la Charte</div><p class="art-text">Comité constitué des Présidents de l'AUDACE et de l'ADNAC, animé par le maire de Chavenay, se réunissant annuellement.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="silence">
+  <div class="container">
+    <div class="silence-in ai">
+      <div class="silence-ico" aria-hidden="true">🔇</div>
+      <div>
+        <div class="silence-title">Plage de confort — plage de silence en tour de piste</div>
+        <p class="silence-text">Du <strong>1er avril au 30 septembre</strong>, pour les aéronefs à moteur thermique ou à turbine, les créneaux suivants sont réservés au calme des riverains :</p>
+        <div class="slots">
+          <span class="slot">Sam. avant 09h00</span>
+          <span class="slot">Sam. 12h30 → 14h00</span>
+          <span class="slot">Sam. après 19h00</span>
+          <span class="slot">Dim. & fériés avant 09h00</span>
+          <span class="slot">Dim. & fériés 12h30 → 15h00</span>
+          <span class="slot">Dim. & fériés après 19h00</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="ou-voler" class="ouvoler">
+  <div class="container">
+    <div class="ouvoler-grid">
+      <div class="ai">
+        <div class="sh" style="text-align:left;margin-bottom:2rem">
+          <span class="sh-eye">Les structures de vol</span>
+          <h2 class="sh-title">Où voler à Chavenay ?</h2>
+        </div>
+        <p style="font-size:.95rem;color:var(--mu);line-height:1.8;margin-bottom:1.5rem"><em style="font-family:var(--fs);font-size:1.05rem;color:var(--tx)">« Le pilotage sera toujours de votre âge ! »</em><br>Femme ou homme, jeune ou expérimenté, ingénieur ou employé : piloter un avion est à la portée de tous. L'aérodrome héberge des aéroclubs aux flottes complémentaires.</p>
+        <div class="clubs">
+          <a href="https://www.acdif.fr" class="club" target="_blank" rel="noopener"><div class="club-ico">✈️</div><div><div class="club-name">Aéro-club Dassault Île-de-France</div><div class="club-url">acdif.fr</div></div><span class="club-arr">›</span></a>
+          <a href="https://www.aeroclubcaudron.com" class="club" target="_blank" rel="noopener"><div class="club-ico">🛩️</div><div><div class="club-name">Aéro-club Gaston Caudron</div><div class="club-url">aeroclubcaudron.com</div></div><span class="club-arr">›</span></a>
+          <a href="https://www.acjb.net" class="club" target="_blank" rel="noopener"><div class="club-ico">✈️</div><div><div class="club-name">Aéro-club Jean Bertin</div><div class="club-url">acjb.net</div></div><span class="club-arr">›</span></a>
+          <a href="https://www.aeroclubrenault.fr" class="club" target="_blank" rel="noopener"><div class="club-ico">🛩️</div><div><div class="club-name">Aéro-club Renault</div><div class="club-url">aeroclubrenault.fr</div></div><span class="club-arr">›</span></a>
+          <a href="https://www.aeroclub-arc.com" class="club" target="_blank" rel="noopener"><div class="club-ico">✈️</div><div><div class="club-name">Aviation et Relations Culturelles (A.R.C.)</div><div class="club-url">aeroclub-arc.com</div></div><span class="club-arr">›</span></a>
+          <a href="https://ceva-voltige.fr" class="club" target="_blank" rel="noopener"><div class="club-ico">🌀</div><div><div class="club-name">Centre d'Entraînement à la Voltige Aérienne</div><div class="club-url">ceva-voltige.fr</div></div><span class="club-arr">›</span></a>
+          <a href="https://www.aeroclub-cercle-aerien-peugeot.com" class="club" target="_blank" rel="noopener"><div class="club-ico">🛩️</div><div><div class="club-name">Cercle Aérien Peugeot</div><div class="club-url">aeroclub-cercle-aerien-peugeot.com</div></div><span class="club-arr">›</span></a>
+          <a href="https://www.capouestulm.com" class="club" target="_blank" rel="noopener"><div class="club-ico">🪂</div><div><div class="club-name">CAP OUEST ULM</div><div class="club-url">capouestulm.com</div></div><span class="club-arr">›</span></a>
+        </div>
+      </div>
+      <div class="ovr ai" style="animation-delay:.1s">
+        <div class="sh" style="text-align:left;margin-bottom:1.5rem">
+          <span class="sh-eye">Infos pratiques</span>
+          <h2 class="sh-title">L'aérodrome de Chavenay</h2>
+        </div>
+        <div class="infos">
+          <div class="info-row"><span class="info-ico">📍</span><div class="info-b"><strong>Adresse</strong><span>Route de Feucherolles, 78450 Villepreux (Yvelines)</span></div></div>
+          <div class="info-row"><span class="info-ico">🚗</span><div class="info-b"><strong>Accès depuis Paris</strong><span>30 km via A13, sortie Chavenay — facilement accessible</span></div></div>
+          <div class="info-row"><span class="info-ico">🛬</span><div class="info-b"><strong>Piste 10/28 — Préférentielle</strong><span>Piste en herbe privilégiée pour limiter les nuisances sonores sur les zones habitées (aménagement ADP Le Bourget)</span></div></div>
+          <div class="info-row"><span class="info-ico">🛬</span><div class="info-b"><strong>Piste 05/23 — Secondaire</strong><span>Piste en herbe utilisée selon les conditions météo (vent) lorsque la 10/28 n'est pas praticable</span></div></div>
+          <div class="info-row"><span class="info-ico">📡</span><div class="info-b"><strong>Indicatif OACI</strong><span>LFPX — Espace aérien contrôlé Paris, coordination Orly / CDG</span></div></div>
+          <div class="info-row"><span class="info-ico">⚡</span><div class="info-b"><strong>Innovation</strong><span>Premier aérodrome à accueillir le Pipistrel Vélis-Electro en formation ab initio Tour de Piste</span></div></div>
+        </div>
+        <div class="musee"><strong>Pour les 6–12 ans :</strong> Pilotez au Musée de l'Air et de l'Espace du Bourget ! Renseignez-vous auprès des clubs membres pour la plaquette découverte.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="jeunes" class="jeunes">
+  <div class="container">
+    <div class="sh ai">
+      <span class="sh-eye">Jeunes & Métiers</span>
+      <h2 class="sh-title">L'aérodrome forme et transmet</h2>
+      <p class="sh-desc">Depuis 1936, Chavenay est un vivier de formation ouvert à tous les âges et tous les profils, des premiers vols jusqu'aux qualifications professionnelles.</p>
+    </div>
+    <div class="jeunes-grid">
+      <div class="jeune ai"><span class="jeune-ico">🧑‍✈️</span><div class="jeune-name">Apprentis pilotes</div><p class="jeune-desc">Formation PPL, ULM et brevet de base dès 15 ans dans les clubs affiliés FFA.</p></div>
+      <div class="jeune ai" style="animation-delay:.06s"><span class="jeune-ico">🔧</span><div class="jeune-name">Mécaniciens aéro</div><p class="jeune-desc">Apprentissage en alternance et stages sur appareils réels pour les techniciens en formation.</p></div>
+      <div class="jeune ai" style="animation-delay:.12s"><span class="jeune-ico">✈️</span><div class="jeune-name">Pilotes professionnels</div><p class="jeune-desc">Maintien de qualification, remise à niveau et perfectionnement pour pilotes de ligne.</p></div>
+      <div class="jeune ai" style="animation-delay:.18s"><span class="jeune-ico">🌀</span><div class="jeune-name">Voltige aérienne</div><p class="jeune-desc">Le CEVA propose une formation spécialisée à la voltige, discipline exigeante et spectaculaire.</p></div>
+      <div class="jeune ai" style="animation-delay:.24s"><span class="jeune-ico">🏫</span><div class="jeune-name">Partenariats scolaires</div><p class="jeune-desc">Conventions avec lycées pour initier les jeunes à l'aéronautique et aux sciences de l'air.</p></div>
+      <div class="jeune ai" style="animation-delay:.30s"><span class="jeune-ico">🔄</span><div class="jeune-name">Reconversion adultes</div><p class="jeune-desc">Accompagnement des adultes vers les métiers de l'aviation civile et de la maintenance.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="communes" class="communes">
+  <div class="container">
+    <div class="sh ai"><span class="sh-eye">Territoire</span><h2 class="sh-title">Les communes partenaires</h2></div>
+    <div class="communes-body">
+      <div class="communes-text ai">
+        <p>L'aérodrome de Chavenay-Villepreux est un acteur de territoire collaborant avec l'ensemble des communes environnantes. La Charte de Chavenay a été approuvée par les municipalités, élus et institutions du territoire.</p>
+        <p>Les aéroclubs membres fédèrent des centaines d'adhérents issus de ces communes et contribuent activement à la vie locale, culturelle et économique des Yvelines.</p>
+        <div class="leg-row">
+          <span class="leg"><span class="ld s"></span> Signataire de la Charte</span>
+          <span class="leg"><span class="ld o"></span> Commune riveraine</span>
+        </div>
+      </div>
+      <div class="ai" style="animation-delay:.1s">
+        <div class="ctags">
+          <span class="ctag sg">Chavenay</span><span class="ctag sg">Villepreux</span><span class="ctag sg">Davron</span><span class="ctag sg">Feucherolles</span><span class="ctag sg">Les Clayes-sous-Bois</span><span class="ctag sg">Plaisir</span><span class="ctag sg">Saint-Nom-la-Bretèche</span><span class="ctag">Bazoches-sur-Guyonne</span><span class="ctag">Mareil-sur-Mauldre</span><span class="ctag">Thiverval-Grignon</span><span class="ctag">Crespières</span><span class="ctag">Fontenay-le-Fleury</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-l ai">
+        <div class="sh" style="text-align:left"><span class="sh-eye">Nous joindre</span><h2 class="sh-title">Contact</h2></div>
+        <div class="cds">
+          <div class="cd"><div class="cd-ico">📍</div><div class="cd-tx"><strong>Siège social</strong><span>Aérodrome de Chavenay, 78450 Villepreux<br>N° W78000748 — Loi 1901</span></div></div>
+          <div class="cd"><div class="cd-ico">✉️</div><div class="cd-tx"><strong>Email</strong><span>contact@audace-chavenay.fr</span></div></div>
+          <div class="cd"><div class="cd-ico">📋</div><div class="cd-tx"><strong>Documents</strong><span>Charte de Chavenay édition 2022 — disponible en téléchargement</span></div></div>
+        </div>
+        <div class="riv-note"><strong>Riverains :</strong> Pour tout signalement ou question relatif aux activités de l'aérodrome, l'AUDACE et l'ADNAC sont vos interlocuteurs. Le Comité de Suivi se réunit annuellement en présence des élus.</div>
+      </div>
+      <div class="cform ai" style="animation-delay:.1s">
+        <div class="cf-title">Envoyer un message</div>
+        <div class="fg"><label class="fl" for="nom">Nom complet</label><input class="fi" type="text" id="nom" placeholder="Jean Dupont"></div>
+        <div class="fg"><label class="fl" for="email">Email</label><input class="fi" type="email" id="email" placeholder="jean@exemple.fr"></div>
+        <div class="fg"><label class="fl" for="commune">Commune</label><input class="fi" type="text" id="commune" placeholder="Chavenay, Villepreux…"></div>
+        <div class="fg"><label class="fl" for="sujet">Sujet</label><select class="fi fsel" id="sujet"><option value="">Choisir…</option><option>Question générale</option><option>Signalement nuisance sonore</option><option>Charte de Chavenay</option><option>Comité de suivi</option><option>Presse / médias</option></select></div>
+        <div class="fg"><label class="fl" for="message">Message</label><textarea class="ft" id="message" placeholder="Votre message…"></textarea></div>
+        <button class="btn btn-navy" style="width:100%;justify-content:center" onclick="handleSend(event)">Envoyer →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo"><div class="footer-lm">AUDACE</div><span class="footer-brand-name">AUDACE</span></div>
+        <p class="footer-desc">Association des Usagers De l'Aérodrome de Chavenay et de son Environnement. Pour un ciel partagé et un territoire respecté.</p>
+        <span class="footer-badge">✦ LFPX · Chavenay-Villepreux · Yvelines</span>
+      </div>
+      <div>
+        <div class="fc-title">Navigation</div>
+        <ul class="flinks">
+          <li><a href="#missions">Association</a></li><li><a href="#charte">La Charte</a></li><li><a href="#ou-voler">Où voler ?</a></li><li><a href="#jeunes">Jeunes & Métiers</a></li><li><a href="#communes">Communes</a></li><li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="fc-title">Liens utiles</div>
+        <ul class="flinks">
+          <li><a href="#">Mentions légales</a></li><li><a href="#">Charte de Chavenay (PDF)</a></li><li><a href="https://www.ffa-aero.fr" target="_blank" rel="noopener">FFA</a></li><li><a href="https://www.sia.aviation-civile.gouv.fr" target="_blank" rel="noopener">SIA / AIP France</a></li><li><a href="https://www.ecologique.gouv.fr" target="_blank" rel="noopener">DGAC</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bot">
+      <span>© 2025 AUDACE — Association loi 1901 · N° W78000748</span>
+      <a href="#">Mentions légales</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('sc',scrollY>24)},{passive:true});
+const burger=document.getElementById('burger'),nl=document.getElementById('navlinks');
+burger.addEventListener('click',()=>{const o=nl.classList.toggle('open');burger.setAttribute('aria-expanded',o)});
+nl.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nl.classList.remove('open')));
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target)}})},{threshold:.1});
+document.querySelectorAll('.ai').forEach(el=>io.observe(el));
+const secs=document.querySelectorAll('section[id]'),ancs=document.querySelectorAll('.nav-links a[href^="#"]');
+window.addEventListener('scroll',()=>{let c='';secs.forEach(s=>{if(scrollY>=s.offsetTop-130)c=s.id});ancs.forEach(a=>a.classList.toggle('ac',a.getAttribute('href')==='#'+c))},{passive:true});
+function handleSend(e){const b=e.target;b.textContent='✓ Message envoyé !';b.style.background='#2e6b3e';b.disabled=true;setTimeout(()=>{b.textContent='Envoyer →';b.style.background='';b.disabled=false;document.querySelectorAll('.fi,.ft,.fsel').forEach(i=>i.value='')},3500)}
+</script>
+</body>
+</html>
